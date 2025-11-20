@@ -25,27 +25,23 @@
             font-family: 'Noto Serif SC', serif;
         }
         
-        /* --- 颜色变量 & 渐变 (Navy & Beige) --- */
-        
-        /* 1. 深蓝背景 (权威、稳重) */
+        /* --- 颜色变量 --- */
         .bg-navy-rich {
             background-color: #0f172a; /* Slate-900 */
             background-image: radial-gradient(at top right, #1e293b 0%, #0f172a 100%);
             color: #f8fafc;
         }
         
-        /* 2. 暖米色背景 (高雅、舒适) */
         .bg-beige-soft {
             background-color: #fdfbf7;
             background-image: linear-gradient(to bottom, #fdfbf7, #f3f1eb);
             color: #1e293b;
         }
 
-        /* 3. 金色点缀 */
+        .text-navy { color: #0f172a; }
         .text-gold { color: #c29d59; }
-        .text-gold-dark { color: #927238; }
-        .bg-gold { background-color: #c29d59; }
-        .border-gold { border-color: #c29d59; }
+        .bg-navy { background-color: #0f172a; }
+        .bg-gold { background-color: #ca8a04; }
         
         /* --- 幻灯片容器 --- */
         .slide {
@@ -57,7 +53,6 @@
             position: relative;
             max-width: 1200px;
             margin: 0 auto; 
-            /* border-radius: 0;  移除圆角，打造通栏沉浸感 */
             box-shadow: none; 
             overflow: hidden;
         }
@@ -71,7 +66,7 @@
         /* --- 装饰线条 --- */
         .gold-line {
             height: 3px;
-            background: linear-gradient(90deg, #c29d59, #e8c98d);
+            background: linear-gradient(90deg, #ca8a04, #facc15);
             width: 60px;
             margin: 1.5rem 0;
             border-radius: 2px;
@@ -90,7 +85,7 @@
 
         /* --- 组件样式 --- */
         
-        /* 1. Offer 列表卡片 (在深色背景上) */
+        /* 1. Offer 列表卡片 (深色背景用) */
         .offer-card-dark {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -117,7 +112,7 @@
             font-size: 0.75rem;
         }
 
-        /* 2. 专家卡片 (在暖色背景上) */
+        /* 2. 专家卡片 (暖色背景用) */
         .expert-card {
             background: #fff;
             border: 1px solid #e2e8f0;
@@ -150,7 +145,7 @@
             border: 3px solid #c29d59;
         }
 
-        /* 3. 系统/流程卡片 (在深色背景上) */
+        /* 3. 系统/流程卡片 (深色背景用) */
         .system-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -288,7 +283,7 @@
                 <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-yellow-600 relative transform scale-105">
                     <div class="absolute top-0 right-0 bg-yellow-600 text-white text-xs px-2 py-1 rounded-bl">Legacy Path 核心</div>
                     <h3 class="text-lg font-bold text-navy mb-2">高净值家庭教育逻辑</h3>
-                    <p class="text-sm text-gold-dark mb-4">必须依靠“内在意义”驱动</p>
+                    <p class="text-sm text-gold mb-4">必须依靠“内在意义”驱动</p>
                     <ul class="clean-list text-sm">
                         <li>财富削弱了生存焦虑，外部驱动失效</li>
                         <li>必须主动寻找<strong>内驱力</strong>与<strong>使命感</strong></li>
@@ -306,7 +301,7 @@
         <div class="watermark">Legacy Path / Philosophy</div>
     </div>
 
-    <!-- Slide 3: Results (Navy Background for Contrast) -->
+    <!-- Slide 3: Results (Navy Background) -->
     <div class="slide bg-navy-rich">
         <div class="max-w-6xl mx-auto w-full reveal">
             <div class="text-center mb-8">
@@ -371,7 +366,7 @@
             <!-- Expert 1 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">CG</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Admissions President</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Admissions President</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Chris G.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">教育咨询项目总监</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -384,7 +379,7 @@
             <!-- Expert 2 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">CD</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Admissions Committee</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Admissions Committee</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Claire D.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">密苏里州大学升学委员会主席</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -396,7 +391,7 @@
             <!-- Expert 3 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">SG</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Ivy League Specialist</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Ivy League Specialist</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Suzanne G.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">哈佛大学本科与法学院毕业</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -408,7 +403,7 @@
             <!-- Expert 4 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">HW</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Princeton Admissions</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Princeton Admissions</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Hollyn W.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">前普林斯顿大学招生副主任</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -420,7 +415,7 @@
             <!-- Expert 5 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">KP</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Art & Design</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Art & Design</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Katerina P.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">华盛顿大学本科招生副主任</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -432,7 +427,7 @@
             <!-- Expert 6 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">ME</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Liberal Arts Expert</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Liberal Arts Expert</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Margaret E.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">莎士比亚艺术学院硕士</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -444,7 +439,7 @@
             <!-- Expert 7 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">KG</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Education Consultant</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Education Consultant</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Kyle G.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">国际著名教育咨询专家</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -456,7 +451,7 @@
             <!-- Expert 8 -->
             <div class="expert-card rounded-lg">
                 <div class="expert-avatar">SM</div>
-                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Talent Development</p>
+                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Talent Development</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Sonia M.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">人才发展总监</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -480,7 +475,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto reveal">
-            <!-- System Items -->
             <div class="system-card">
                 <h4 class="text-lg font-bold text-gold mb-2">1. 内驱力觉醒</h4>
                 <p class="text-sm text-gray-300">自我认知评估，从“要我学”转变为“我要学”。</p>
@@ -525,7 +519,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal">
-            <!-- Case 1 -->
             <div class="expert-card border-t-red-600 hover:border-t-red-700">
                 <span class="bg-red-50 text-red-700 text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block">Type A: 高分低配突破</span>
                 <h4 class="text-xl font-bold text-navy mb-2">录取：哈佛大学</h4>
@@ -535,7 +528,6 @@
                     <p class="text-sm text-gray-600">挖掘其对城市规划的隐性热情，指导落地真实的社区改造项目。文书将形象从“学霸”重塑为“有使命感的未来规划者”。</p>
                 </div>
             </div>
-            <!-- Case 2 -->
             <div class="expert-card border-t-blue-600 hover:border-t-blue-700">
                 <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block">Type B: 小众背景强化</span>
                 <h4 class="text-xl font-bold text-navy mb-2">录取：麻省理工 (MIT)</h4>
@@ -545,7 +537,6 @@
                     <p class="text-sm text-gray-600">利用顾问网络引荐至顶尖实验室远程科研。文书聚焦实验失败反思，前AO深度推荐证明潜力。</p>
                 </div>
             </div>
-            <!-- Case 3 -->
             <div class="expert-card border-t-yellow-600 hover:border-t-yellow-700">
                 <span class="bg-yellow-50 text-yellow-700 text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block">Type C: 低龄长期规划</span>
                 <h4 class="text-xl font-bold text-navy mb-2">录取：耶鲁大学</h4>
@@ -566,7 +557,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal">
-            <!-- Elite -->
             <div class="bg-white border border-gray-200 rounded-xl p-8 flex flex-col hover:border-navy hover:shadow-xl transition-all">
                 <div class="mb-6">
                     <h3 class="text-2xl font-bold text-navy mb-2">Legacy Path Elite</h3>
@@ -584,7 +574,6 @@
                 </ul>
             </div>
 
-            <!-- Capstone -->
             <div class="bg-white border border-gray-200 rounded-xl p-8 flex flex-col hover:border-gold hover:shadow-xl transition-all relative overflow-hidden">
                 <div class="absolute top-0 right-0 bg-gold text-white text-xs px-3 py-1 font-bold">战略点睛</div>
                 <div class="mb-6">
@@ -594,7 +583,7 @@
                 <div class="mb-8 border-b border-gray-200 pb-6">
                     <p class="text-4xl font-bold text-navy">CNY 150万</p>
                 </div>
-                <div class="text-xs text-blue-800 bg-blue-50 p-3 rounded mb-4">
+                <div class="text-xs text-blue-800 bg-blue-100/50 p-3 rounded mb-4">
                     *针对已具备优秀学术背景，寻求最后战略点睛与资源助力的学生。
                 </div>
                 <ul class="clean-list text-sm flex-grow space-y-3">
@@ -609,7 +598,7 @@
         <div class="watermark">Legacy Path / Pricing</div>
     </div>
 
-    <!-- Slide 8: Contact -->
+    <!-- Slide 8: Contact (Navy Background) -->
     <div class="slide bg-navy-rich text-center">
         <div class="max-w-3xl mx-auto reveal">
             <h2 class="serif text-4xl text-white mb-6">开启精英教育的战略规划</h2>
@@ -633,11 +622,12 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h3 class="text-2xl font-bold text-navy mb-3">专属顾问微信</h3>
-            <p class="text-gray-500 text-sm mb-6">请扫描下方二维码，添加首席战略顾问。<br>备注：“Legacy Path 咨询”</p>
+            <p class="text-gray-500 text-sm mb-6">扫描上方微信二维码<br>首席战略顾问 Iris</p>
             <div class="w-56 h-56 mx-auto bg-gray-100 border-2 border-gray-200 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden shadow-inner">
-                 <img src="https://placehold.co/224x224/0f172a/ffffff?text=WeChat+QR" alt="WeChat QR Code" class="w-full h-full object-cover">
+                 <!-- Use the uploaded image file name here. User must place file in same directory. -->
+                 <img src="WechatIMG179.jpg" alt="微信二维码 (请确保 WechatIMG179.jpg 与此文件在同一目录)" class="w-full h-full object-cover">
             </div>
-            <p class="text-xs text-gray-400">或搜索微信号: <span class="text-navy font-bold">LegacyPath_VIP</span></p>
+            <p class="text-xs text-gray-400">备注：“Legacy Path 咨询”</p>
         </div>
     </div>
 
