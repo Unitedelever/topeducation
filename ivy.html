@@ -16,7 +16,7 @@
         /* --- 全局设置 --- */
         body {
             font-family: 'Noto Sans SC', sans-serif;
-            background-color: #f1f5f9; /* 整体背景微冷灰 */
+            background-color: #f5f5f0; /* 整体背景暖米色 */
             color: #334155;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
@@ -25,25 +25,27 @@
             font-family: 'Noto Serif SC', serif;
         }
         
-        /* --- 颜色变量 & 渐变 --- */
-        /* 优化后的背景渐变 */
-        .bg-gradient-warm {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); /* 明显的暖金色调 */
+        /* --- 颜色变量 & 渐变 (Navy & Beige) --- */
+        
+        /* 1. 深蓝背景 (权威、稳重) */
+        .bg-navy-rich {
+            background-color: #0f172a; /* Slate-900 */
+            background-image: radial-gradient(at top right, #1e293b 0%, #0f172a 100%);
+            color: #f8fafc;
         }
-        .bg-gradient-cool {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* 明显的淡蓝色调 */
-        }
-        .bg-gradient-subtle {
-            background: linear-gradient(to bottom, #ffffff, #f8fafc);
-        }
-        .bg-navy-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        
+        /* 2. 暖米色背景 (高雅、舒适) */
+        .bg-beige-soft {
+            background-color: #fdfbf7;
+            background-image: linear-gradient(to bottom, #fdfbf7, #f3f1eb);
+            color: #1e293b;
         }
 
-        .text-navy { color: #0f172a; }
-        .text-gold { color: #b45309; }
-        .bg-navy { background-color: #0f172a; }
-        .bg-gold { background-color: #ca8a04; }
+        /* 3. 金色点缀 */
+        .text-gold { color: #c29d59; }
+        .text-gold-dark { color: #927238; }
+        .bg-gold { background-color: #c29d59; }
+        .border-gold { border-color: #c29d59; }
         
         /* --- 幻灯片容器 --- */
         .slide {
@@ -54,25 +56,23 @@
             padding: 5rem 2rem;
             position: relative;
             max-width: 1200px;
-            margin: 2rem auto; 
-            border-radius: 16px; 
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08); 
+            margin: 0 auto; 
+            /* border-radius: 0;  移除圆角，打造通栏沉浸感 */
+            box-shadow: none; 
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.5);
         }
         @media (max-width: 768px) {
             .slide {
                 padding: 3rem 1.5rem;
                 min-height: auto;
-                margin: 1rem auto;
             }
         }
 
         /* --- 装饰线条 --- */
         .gold-line {
-            height: 4px;
-            background: linear-gradient(90deg, #ca8a04, #facc15);
-            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #c29d59, #e8c98d);
+            width: 60px;
             margin: 1.5rem 0;
             border-radius: 2px;
         }
@@ -90,110 +90,95 @@
 
         /* --- 组件样式 --- */
         
-        /* Offer 列表卡片 */
-        .offer-card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
+        /* 1. Offer 列表卡片 (在深色背景上) */
+        .offer-card-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
             padding: 0.6rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.2s;
             font-size: 0.9rem;
-            font-weight: 500;
+            color: #e2e8f0;
         }
-        .offer-card:hover {
-            border-color: #ca8a04;
-            background: #fffbeb;
+        .offer-card-dark:hover {
+            border-color: #c29d59;
+            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .offer-badge {
+            background-color: #c29d59;
+            color: #0f172a;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
         }
 
-        /* 专家卡片 (Enhanced Visuals) */
-        .feature-card {
+        /* 2. 专家卡片 (在暖色背景上) */
+        .expert-card {
             background: #fff;
             border: 1px solid #e2e8f0;
             border-top: 4px solid #0f172a;
-            padding: 2rem 1.5rem;
+            padding: 2rem;
             transition: all 0.3s ease;
             height: 100%;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
-            border-top-color: #ca8a04;
+        .expert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-top-color: #c29d59;
         }
-
-        /* 专家头像 - 彩色设计 */
-        .expert-avatar-box {
-            width: 90px;
-            height: 90px;
+        
+        /* 专家头像 */
+        .expert-avatar {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0f172a 0%, #334155 100%); /* 深蓝渐变底 */
-            color: #facc15; /* 金色文字 */
+            background-color: #0f172a;
+            color: #c29d59;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Noto Serif SC', serif;
             font-weight: 700;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
-            border: 4px solid #fff;
-        }
-        .feature-card:hover .expert-avatar-box {
-            background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%); /* 悬停变金 */
-            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border: 3px solid #c29d59;
         }
 
-        /* 流程时间轴 */
-        .timeline-item {
-            position: relative;
-            padding-left: 3.5rem;
-            padding-bottom: 3.5rem;
-            border-left: 2px solid #cbd5e1;
+        /* 3. 系统/流程卡片 (在深色背景上) */
+        .system-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
         }
-        .timeline-item:last-child { border-left: transparent; }
-        .timeline-marker {
-            position: absolute;
-            left: -1.1rem;
-            top: 0;
-            width: 2.2rem;
-            height: 2.2rem;
-            background: #fff;
-            border: 2px solid #0f172a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #0f172a;
-            z-index: 10;
-            box-shadow: 0 0 0 4px #f0f2f5; 
+        .system-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #c29d59;
         }
-        
-        /* 列表样式 */
+
+        /* 4. 列表样式 */
         .clean-list li {
             position: relative;
             padding-left: 1rem;
             margin-bottom: 0.5rem;
-            line-height: 1.5;
-            color: #475569;
+            line-height: 1.6;
             font-size: 0.9rem;
-            text-align: left;
         }
+        .bg-navy-rich .clean-list li { color: #cbd5e1; }
+        .bg-beige-soft .clean-list li { color: #475569; }
+        
         .clean-list li::before {
             content: "";
             width: 6px;
             height: 6px;
-            background-color: #ca8a04;
+            background-color: #c29d59;
             border-radius: 50%;
             position: absolute;
             left: 0;
@@ -214,16 +199,16 @@
         }
         .modal-overlay.active { display: flex; opacity: 1; }
         .modal-content {
-            background: white;
+            background: #fff;
             padding: 3rem;
-            border-radius: 16px;
+            border-radius: 8px;
             max-width: 400px;
             width: 90%;
             text-align: center;
             position: relative;
             transform: scale(0.95);
             transition: transform 0.3s ease;
-            border-top: 6px solid #ca8a04;
+            border-top: 6px solid #c29d59;
         }
         .modal-overlay.active .modal-content { transform: scale(1); }
         .close-btn {
@@ -238,25 +223,27 @@
             position: absolute;
             bottom: 1.5rem; right: 2rem;
             font-size: 0.75rem;
-            color: #94a3b8;
             font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            opacity: 0.5;
         }
+        .bg-navy-rich .watermark { color: #64748b; }
+        .bg-beige-soft .watermark { color: #94a3b8; }
         
         .count-up { font-variant-numeric: tabular-nums; }
     </style>
 </head>
-<body>
+<body class="bg-navy-rich">
 
-    <!-- Slide 1: Hero -->
-    <div class="slide bg-navy-gradient text-white relative overflow-hidden flex items-center">
+    <!-- Slide 1: Hero (Navy Background) -->
+    <div class="slide bg-navy-rich text-white relative overflow-hidden flex items-center">
         <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
         
         <div class="max-w-5xl mx-auto w-full z-10 reveal">
-            <div class="inline-flex items-center space-x-2 mb-8">
-                <span class="h-px w-8 bg-yellow-500"></span>
-                <span class="text-yellow-500 text-[10px] font-bold tracking-[0.2em] uppercase">Global Elite Education Strategy</span>
+            <div class="inline-flex items-center space-x-3 mb-8">
+                <span class="h-px w-8 bg-gold"></span>
+                <span class="text-gold text-[11px] font-bold tracking-[0.2em] uppercase">Global Elite Education Strategy</span>
             </div>
             
             <h1 class="serif font-light leading-relaxed mb-6">
@@ -269,14 +256,14 @@
             
             <p class="text-base md:text-lg font-light text-gray-300 max-w-2xl leading-relaxed mt-6">
                 非留学中介，而是下一代成长的战略合伙人。<br>
-                <span class="text-yellow-500 font-normal mt-2 block text-sm md:text-base">专注为具备潜质的学生，定制冲刺世界顶级学府的确定性路径。</span>
+                <span class="text-gold font-normal mt-2 block text-sm md:text-base">专注为具备潜质的学生，定制冲刺世界顶级学府的确定性路径。</span>
             </p>
         </div>
-        <div class="watermark text-slate-600">Private & Confidential</div>
+        <div class="watermark">Private & Confidential</div>
     </div>
 
-    <!-- Slide 2: Philosophy (高净值痛点) - 使用暖色渐变背景 -->
-    <div class="slide bg-gradient-warm">
+    <!-- Slide 2: Philosophy (Beige Background) -->
+    <div class="slide bg-beige-soft">
         <div class="max-w-5xl mx-auto w-full reveal">
             <div class="text-center mb-12">
                 <h2 class="serif text-3xl md:text-4xl text-navy mb-4">为什么藤校申请越来越难？</h2>
@@ -301,7 +288,7 @@
                 <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-yellow-600 relative transform scale-105">
                     <div class="absolute top-0 right-0 bg-yellow-600 text-white text-xs px-2 py-1 rounded-bl">Legacy Path 核心</div>
                     <h3 class="text-lg font-bold text-navy mb-2">高净值家庭教育逻辑</h3>
-                    <p class="text-sm text-gold mb-4">必须依靠“内在意义”驱动</p>
+                    <p class="text-sm text-gold-dark mb-4">必须依靠“内在意义”驱动</p>
                     <ul class="clean-list text-sm">
                         <li>财富削弱了生存焦虑，外部驱动失效</li>
                         <li>必须主动寻找<strong>内驱力</strong>与<strong>使命感</strong></li>
@@ -309,31 +296,37 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="text-center border-t border-gray-200 pt-8">
+                <p class="text-navy font-serif text-lg italic">
+                    “我们不仅关注<strong>18岁的录取</strong>，更关注<strong>28岁的格局</strong>与<strong>38岁的成就</strong>。”
+                </p>
+            </div>
         </div>
         <div class="watermark">Legacy Path / Philosophy</div>
     </div>
 
-    <!-- Slide 3: Results (Dashboard Style) - 使用冷色渐变背景 -->
-    <div class="slide bg-gradient-cool">
+    <!-- Slide 3: Results (Navy Background for Contrast) -->
+    <div class="slide bg-navy-rich">
         <div class="max-w-6xl mx-auto w-full reveal">
             <div class="text-center mb-8">
-                <h2 class="serif text-3xl md:text-4xl text-navy mb-2">2025 申请季 · 统治级录取数据</h2>
-                <p class="text-gray-500 text-sm">战略执行团队真实录取成果 (Offer Count)</p>
+                <h2 class="serif text-3xl md:text-4xl text-white mb-2">2025 申请季 · 统治级录取数据</h2>
+                <p class="text-gray-400 text-sm">战略执行团队真实录取成果 (Offer Count)</p>
             </div>
 
             <!-- Metrics -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-navy text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
-                    <span class="text-4xl md:text-5xl font-bold text-yellow-400 mb-1 count-up" data-target="33">0</span>
+                <div class="bg-white/10 border border-white/10 p-6 rounded-lg flex flex-col items-center justify-center backdrop-blur-sm">
+                    <span class="text-4xl md:text-5xl font-bold text-gold mb-1 count-up" data-target="33">0</span>
                     <span class="text-xs uppercase tracking-widest text-gray-300">常春藤盟校 Offer</span>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center justify-center">
-                    <span class="text-4xl md:text-5xl font-bold text-navy mb-1 count-up" data-target="74">0</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-500">Top 20 综合大学 Offer</span>
+                <div class="bg-white/10 border border-white/10 p-6 rounded-lg flex flex-col items-center justify-center backdrop-blur-sm">
+                    <span class="text-4xl md:text-5xl font-bold text-white mb-1 count-up" data-target="74">0</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-300">Top 20 综合大学 Offer</span>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center justify-center">
-                    <span class="text-sm font-bold text-gray-400 uppercase mb-2">历史稳定性背书</span>
-                    <div class="text-sm text-gray-600 text-center space-y-1">
+                <div class="bg-white/10 border border-white/10 p-6 rounded-lg flex flex-col items-center justify-center backdrop-blur-sm">
+                    <span class="text-sm font-bold text-gray-300 uppercase mb-2">历史稳定性背书</span>
+                    <div class="text-sm text-gray-400 text-center space-y-1">
                         <p><strong>2024:</strong> 29 枚藤校</p>
                         <p><strong>2023:</strong> 25 枚藤校</p>
                     </div>
@@ -341,34 +334,34 @@
             </div>
 
             <!-- Offer Grid -->
-            <div class="bg-white p-8 rounded-xl border border-slate-100 w-full mb-6 shadow-sm">
-                <h3 class="text-sm font-bold text-navy mb-4 uppercase tracking-wide border-l-4 border-navy pl-3">2025 核心录取明细 (部分)</h3>
+            <div class="w-full mb-6">
+                <h3 class="text-sm font-bold text-gold mb-4 uppercase tracking-wide border-l-4 border-gold pl-3">2025 核心录取明细 (部分)</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">康奈尔</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">8</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">宾夕法尼亚</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">7</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">斯坦福</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">5</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">耶鲁大学</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">4</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">哥伦比亚</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">4</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">普林斯顿</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">3</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">哈佛大学</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">3</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">MIT</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">3</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">布朗大学</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">3</span></div>
-                    <div class="offer-card border-l-2 border-l-yellow-500"><span class="font-bold text-navy">达特茅斯</span><span class="text-xs bg-yellow-100 text-yellow-800 px-2 rounded font-bold">1</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">康奈尔</span><span class="offer-badge">8</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">宾夕法尼亚</span><span class="offer-badge">7</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">斯坦福</span><span class="offer-badge">5</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">耶鲁大学</span><span class="offer-badge">4</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">哥伦比亚</span><span class="offer-badge">4</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">普林斯顿</span><span class="offer-badge">3</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">哈佛大学</span><span class="offer-badge">3</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">MIT</span><span class="offer-badge">3</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">布朗大学</span><span class="offer-badge">3</span></div>
+                    <div class="offer-card-dark"><span class="font-bold">达特茅斯</span><span class="offer-badge">1</span></div>
                     
-                    <div class="offer-card"><span class="text-navy">西北大学</span><span class="text-xs bg-gray-50 text-gray-600 px-2 rounded border border-gray-200">4</span></div>
-                    <div class="offer-card"><span class="text-navy">约翰霍普金斯</span><span class="text-xs bg-gray-50 text-gray-600 px-2 rounded border border-gray-200">4</span></div>
-                    <div class="offer-card"><span class="text-navy">莱斯大学</span><span class="text-xs bg-gray-50 text-gray-600 px-2 rounded border border-gray-200">3</span></div>
-                    <div class="offer-card"><span class="text-navy">加州理工</span><span class="text-xs bg-gray-50 text-gray-600 px-2 rounded border border-gray-200">1</span></div>
-                    <div class="offer-card"><span class="text-navy">芝加哥大学</span><span class="text-xs bg-gray-50 text-gray-600 px-2 rounded border border-gray-200">1</span></div>
-                    <div class="offer-card"><span class="text-navy">杜克大学</span><span class="text-xs bg-gray-50 text-gray-600 px-2 rounded border border-gray-200">1</span></div>
+                    <div class="offer-card-dark"><span>西北大学</span><span class="text-xs text-gray-400">4</span></div>
+                    <div class="offer-card-dark"><span>约翰霍普金斯</span><span class="text-xs text-gray-400">4</span></div>
+                    <div class="offer-card-dark"><span>莱斯大学</span><span class="text-xs text-gray-400">3</span></div>
+                    <div class="offer-card-dark"><span>加州理工</span><span class="text-xs text-gray-400">1</span></div>
+                    <div class="offer-card-dark"><span>芝加哥大学</span><span class="text-xs text-gray-400">1</span></div>
+                    <div class="offer-card-dark"><span>杜克大学</span><span class="text-xs text-gray-400">1</span></div>
                 </div>
             </div>
         </div>
         <div class="watermark">Legacy Path / Results</div>
     </div>
 
-    <!-- Slide 4: Expert Team (Comprehensive & Colorful) - 使用暖色背景 -->
-    <div class="slide bg-gradient-warm">
+    <!-- Slide 4: Expert Team (Beige Background) -->
+    <div class="slide bg-beige-soft">
         <div class="text-center mb-12 reveal">
             <h2 class="serif text-3xl md:text-4xl text-navy">核心专家委员会</h2>
             <p class="text-gray-500 mt-4">汇聚全球招生办核心资源，NACAC/IECA 官方认证专家团队。</p>
@@ -376,9 +369,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto reveal">
             <!-- Expert 1 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">CG</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Admissions President</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">CG</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Admissions President</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Chris G.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">教育咨询项目总监</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -389,9 +382,9 @@
             </div>
 
             <!-- Expert 2 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">CD</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Admissions Committee</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">CD</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Admissions Committee</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Claire D.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">密苏里州大学升学委员会主席</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -401,9 +394,9 @@
             </div>
             
             <!-- Expert 3 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">SG</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Ivy League Specialist</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">SG</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Ivy League Specialist</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Suzanne G.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">哈佛大学本科与法学院毕业</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -413,9 +406,9 @@
             </div>
 
             <!-- Expert 4 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">HW</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Princeton Admissions</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">HW</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Princeton Admissions</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Hollyn W.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">前普林斯顿大学招生副主任</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -425,9 +418,9 @@
             </div>
 
             <!-- Expert 5 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">KP</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Art & Design Admissions</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">KP</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Art & Design</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Katerina P.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">华盛顿大学本科招生副主任</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -437,9 +430,9 @@
             </div>
             
             <!-- Expert 6 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">ME</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Liberal Arts Expert</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">ME</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Liberal Arts Expert</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Margaret E.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">莎士比亚艺术学院硕士</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -449,9 +442,9 @@
             </div>
 
             <!-- Expert 7 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">KG</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Education Consultant</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">KG</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Education Consultant</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Kyle G.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">国际著名教育咨询专家</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -461,9 +454,9 @@
             </div>
 
             <!-- Expert 8 -->
-            <div class="feature-card">
-                <div class="expert-avatar-box">SM</div>
-                <p class="text-xs text-gold font-bold uppercase mb-2 tracking-widest">Talent Development</p>
+            <div class="expert-card rounded-lg">
+                <div class="expert-avatar">SM</div>
+                <p class="text-xs text-gold-dark font-bold uppercase mb-2 tracking-widest">Talent Development</p>
                 <h4 class="text-xl font-bold text-navy mb-1">Sonia M.</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">人才发展总监</p>
                 <ul class="clean-list flex-grow text-sm">
@@ -472,56 +465,60 @@
                 </ul>
             </div>
         </div>
+        
+        <div class="text-center mt-10 pt-6 border-t border-gray-200">
+            <p class="text-gray-400 text-xs">以及更多来自哥伦比亚、斯坦福、芝加哥大学的前招生官组成的终审委员会。</p>
+        </div>
         <div class="watermark">Legacy Path / Team</div>
     </div>
 
-    <!-- Slide 5: The 8-Link System - 使用冷色背景 -->
-    <div class="slide bg-gradient-cool">
+    <!-- Slide 5: The 8-Link System (Navy Background) -->
+    <div class="slide bg-navy-rich">
         <div class="text-center mb-12 reveal">
-            <h2 class="serif text-3xl md:text-4xl text-navy">Next Gen 8大闭环培养系统</h2>
-            <p class="text-gray-500 mt-4">从12岁到22岁的全周期护航，确保家族精神的延续。</p>
+            <h2 class="serif text-3xl md:text-4xl text-white">Next Gen 8大闭环培养系统</h2>
+            <p class="text-gray-400 mt-4">从12岁到22岁的全周期护航，确保家族精神的延续。</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto reveal">
-            <!-- System Item -->
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">1. 内驱力觉醒</h4>
-                <p class="text-sm text-gray-600">自我认知评估，从“要我学”转变为“我要学”。</p>
+            <!-- System Items -->
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">1. 内驱力觉醒</h4>
+                <p class="text-sm text-gray-300">自我认知评估，从“要我学”转变为“我要学”。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">2. 双导师制辅导</h4>
-                <p class="text-sm text-gray-600">“学术导师 + 行业导师”双管齐下，理论实践结合。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">2. 双导师制辅导</h4>
+                <p class="text-sm text-gray-300">“学术导师 + 行业导师”双管齐下，理论实践结合。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">3. 影响力项目</h4>
-                <p class="text-sm text-gray-600">策划个性化 Social Impact Project，展现社会责任。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">3. 影响力项目</h4>
+                <p class="text-sm text-gray-300">策划个性化 Social Impact Project，展现社会责任。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">4. 全球精英实习</h4>
-                <p class="text-sm text-gray-600">链接高端人脉，提供稀缺的国际名企实习机会。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">4. 全球精英实习</h4>
+                <p class="text-sm text-gray-300">链接高端人脉，提供稀缺的国际名企实习机会。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">5. 压力与情绪管理</h4>
-                <p class="text-sm text-gray-600">培养抗压能力 (Resilience)，确保心理健康。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">5. 压力与情绪管理</h4>
+                <p class="text-sm text-gray-300">培养抗压能力 (Resilience)，确保心理健康。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">6. 新生代领导力</h4>
-                <p class="text-sm text-gray-600">定制课程，培养未来的团队管理与决策能力。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">6. 新生代领导力</h4>
+                <p class="text-sm text-gray-300">定制课程，培养未来的团队管理与决策能力。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">7. 高端人脉拓展</h4>
-                <p class="text-sm text-gray-600">进入精英同辈圈层，积累终身受用的社交资本。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">7. 高端人脉拓展</h4>
+                <p class="text-sm text-gray-300">进入精英同辈圈层，积累终身受用的社交资本。</p>
             </div>
-            <div class="p-6 bg-white rounded-lg border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
-                <h4 class="text-lg font-bold text-navy mb-2">8. 暑期沉浸体验</h4>
-                <p class="text-sm text-gray-600">顶尖夏校与研学，提前适应国际化环境。</p>
+            <div class="system-card">
+                <h4 class="text-lg font-bold text-gold mb-2">8. 暑期沉浸体验</h4>
+                <p class="text-sm text-gray-300">顶尖夏校与研学，提前适应国际化环境。</p>
             </div>
         </div>
         <div class="watermark">Legacy Path / System</div>
     </div>
 
-    <!-- Slide 6: Case Studies - 使用暖色背景 -->
-    <div class="slide bg-gradient-warm">
+    <!-- Slide 6: Case Studies (Beige Background) -->
+    <div class="slide bg-beige-soft">
         <div class="text-center mb-12 reveal">
             <h2 class="serif text-3xl md:text-4xl text-navy">精英案例研究</h2>
             <p class="text-gray-500 mt-4">精准的战略定位与个性化执行的胜利。</p>
@@ -529,7 +526,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal">
             <!-- Case 1 -->
-            <div class="feature-card border-t-red-600 hover:border-t-red-700">
+            <div class="expert-card border-t-red-600 hover:border-t-red-700">
                 <span class="bg-red-50 text-red-700 text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block">Type A: 高分低配突破</span>
                 <h4 class="text-xl font-bold text-navy mb-2">录取：哈佛大学</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">"标化满分但活动平庸，缺乏主线。"</p>
@@ -539,7 +536,7 @@
                 </div>
             </div>
             <!-- Case 2 -->
-            <div class="feature-card border-t-blue-600 hover:border-t-blue-700">
+            <div class="expert-card border-t-blue-600 hover:border-t-blue-700">
                 <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block">Type B: 小众背景强化</span>
                 <h4 class="text-xl font-bold text-navy mb-2">录取：麻省理工 (MIT)</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">"痴迷材料科学，但缺乏顶级竞赛奖项。"</p>
@@ -549,7 +546,7 @@
                 </div>
             </div>
             <!-- Case 3 -->
-            <div class="feature-card border-t-yellow-600 hover:border-t-yellow-700">
+            <div class="expert-card border-t-yellow-600 hover:border-t-yellow-700">
                 <span class="bg-yellow-50 text-yellow-700 text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block">Type C: 低龄长期规划</span>
                 <h4 class="text-xl font-bold text-navy mb-2">录取：耶鲁大学</h4>
                 <p class="text-sm text-gray-500 mb-4 italic">"初三签约，目标模糊，性格内向。"</p>
@@ -562,72 +559,8 @@
         <div class="watermark">Legacy Path / Case Studies</div>
     </div>
 
-    <!-- Slide 7: Process -->
-    <div class="slide bg-white">
-        <div class="text-center mb-12 reveal">
-            <h2 class="serif text-3xl md:text-4xl text-navy">标准化服务流程</h2>
-            <p class="text-gray-500 mt-4">透明、严谨的四阶段交付体系。</p>
-        </div>
-
-        <div class="max-w-3xl mx-auto reveal">
-            <!-- Step 1 -->
-            <div class="timeline-item">
-                <div class="timeline-marker">1</div>
-                <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
-                    <h3 class="text-lg font-bold text-navy mb-3">战略启动与评估</h3>
-                    <ul class="clean-list">
-                        <li><strong>深度画像采集：</strong>填写学生/家长详细问卷，完成签约流程。</li>
-                        <li><strong>潜能面试评估：</strong>美方首席顾问视频面试，评估学术潜力、英语能力与内驱力。</li>
-                        <li><strong>团队组建：</strong>匹配最合适的顾问团队，开通 <strong>Naviance</strong> 系统账户。</li>
-                        <li><strong>蓝图制定：</strong>制定未来3-4年的学术选课、标化考试及竞赛活动总体规划。</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="timeline-item">
-                <div class="timeline-marker">2</div>
-                <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
-                    <h3 class="text-lg font-bold text-navy mb-3">策略规划与部署</h3>
-                    <ul class="clean-list">
-                        <li><strong>定制活动策划：</strong>根据蓝图，策划并指导实施高含金量的 Social Impact Project。</li>
-                        <li><strong>假期规划：</strong>顶尖夏校申请、大学访校安排及科研竞赛指导。</li>
-                        <li><strong>执行监理：</strong>顾问团队手把手指导执行，定期复盘，动态调整策略。</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="timeline-item">
-                <div class="timeline-marker">3</div>
-                <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
-                    <h3 class="text-lg font-bold text-navy mb-3">申请阶段与凝练</h3>
-                    <ul class="clean-list">
-                        <li><strong>选校策略矩阵：</strong>制定早申 (ED/EA) 及常规申请 (RD) 的战略名单。</li>
-                        <li><strong>文书打磨与升华：</strong>从头脑风暴开始，反复修改主文书与附加文书，构建独特的“领袖叙事”。</li>
-                        <li><strong>Final Review：</strong>由<strong>前招生官委员会</strong>以名校招生办标准进行模拟终审。</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="timeline-item">
-                <div class="timeline-marker">4</div>
-                <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
-                    <h3 class="text-lg font-bold text-navy mb-3">提交与后续服务</h3>
-                    <ul class="clean-list">
-                        <li><strong>面试特训：</strong>提供详细指导及高仿真模拟面试 (Mock Interview)。</li>
-                        <li><strong>人脉助力：</strong>递交申请后，动用<strong>招生官人脉资源</strong>进行深度推荐。</li>
-                        <li><strong>后续支持：</strong>Waitlist 转正指导、录取后选课建议与大学过渡计划。</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="watermark">Legacy Path / Process</div>
-    </div>
-
-    <!-- Slide 8: Pricing -->
-    <div class="slide bg-gradient-warm">
+    <!-- Slide 7: Pricing (Beige Background) -->
+    <div class="slide bg-beige-soft">
         <div class="text-center mb-12 reveal">
             <h2 class="serif text-3xl md:text-4xl text-navy">服务方案与报价</h2>
         </div>
@@ -676,8 +609,8 @@
         <div class="watermark">Legacy Path / Pricing</div>
     </div>
 
-    <!-- Slide 9: Contact -->
-    <div class="slide bg-navy-gradient text-center">
+    <!-- Slide 8: Contact -->
+    <div class="slide bg-navy-rich text-center">
         <div class="max-w-3xl mx-auto reveal">
             <h2 class="serif text-4xl text-white mb-6">开启精英教育的战略规划</h2>
             <div class="gold-line mx-auto mb-8"></div>
